@@ -1,0 +1,2722 @@
+@use 'sass:math'
+@use 'sass:color'
+
+@import fonts
+@import libs
+@import vars
+
+*
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+	&:before, &:after
+		-webkit-box-sizing: border-box
+		-moz-box-sizing: border-box
+		box-sizing: border-box
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+html, body
+	height: 100%
+
+body
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	color: $blue-dark
+	overflow-x: hidden
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.text-center
+	text-align: center
+
+::selection
+	background-color: $accent
+	color: #fff
+
+select
+	appearance: none
+	background-image: url('../img/arrow-bottom.svg')
+	background-repeat: no-repeat
+	background-position: 95% center
+
+button
+	box-shadow: unset
+	outline: none
+	border: none
+	background-color: transparent
+
+a
+	text-decoration: none
+	color: inherit
+	transition: all .3s ease
+	outline: none
+	&:hover, &:focus, &:active, a:visited
+		opacity: .7
+		color: inherit
+	&:hover
+		// color: $accent
+
+form label
+	font-size: 2.4rem
+	line-height: 2.8rem
+	color: $blue-dark
+	font-weight: 500
+	text-align: left
+
+form input[type="text"],form input[type="number"], form input[type="email"], form input[type="date"], form select, form textarea, form input[type="tel"],
+.select2-container--default .select2-selection--single
+	resize: none
+	min-height: 6rem
+	padding: .4rem 1.4rem
+	font-size: 2.4rem
+	line-height: 4rem
+	font-weight: 500
+	outline: none
+	border: none
+	width: 100%
+	border: 1px solid #ccc
+	display: flex
+	align-items: center
+	border-radius: 5px
+	&::placeholder
+		color: #00000080
+	.select2-selection__arrow
+		display: none
+
+.wpcf7-response-output
+	font-size: 1.8rem
+	margin: 1rem 0
+	
+form select
+	padding-right: 4rem
+
+.select2-container
+	font-size: 2.4rem
+	line-height: 2.88rem
+	color: #00000080
+	
+form input[type="checkbox"]
+	width: 2rem
+	height: 2rem
+	display: inline-block
+	vertical-align: middle
+	margin-right: .4rem
+
+.tml .tml-checkbox+.tml-label
+	display: inline-block
+	vertical-align: middle
+
+.entry_content 
+	.tml-links
+		list-style-type: none
+		margin: 0
+		padding: 0
+
+.tml-field-wrap input
+	border: 1px solid #93B6E1!important
+
+//default
+
+:root
+	font-size: 10px
+	line-height: 10px
+
+//default variables
+.flex
+	display: flex
+
+.dir_col
+	flex-direction: column
+
+.align_c
+	align-items: center
+
+.align_e
+	align-items: flex-end
+
+.align_s
+	align-items: flex-start
+	
+.align_st
+	align-items: stretch
+
+.justify_sb
+	justify-content: space-between
+
+.justify_c
+	justify-content: center
+
+.container
+	max-width: 168rem
+	margin-left: auto
+	margin-right: auto
+	width: 100%
+	position: relative
+	z-index: 20
+
+.container_fluid
+	max-width: 100%
+	margin-left: auto
+	margin-right: auto
+	width: 100%
+	position: relative
+	z-index: 20	
+	
+.bold
+	font-family: $default-font-b
+
+.semibold
+	font-weight: 600
+
+.mb
+	&_3
+		margin-bottom: 3rem
+
+.visible_xs
+	display: none!important
+	
+//critical css
+body .header.sticky
+	padding-bottom: 1rem
+	padding-top: 1rem
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	background-color: $white
+	box-shadow: 0 0 5px 10px rgba(0,0,0,.05)
+	hr
+		margin-bottom: .5rem
+	.logo
+		width: 19rem
+	.header_top-wrapper
+		margin-bottom: 0
+
+.header
+	padding-bottom: 1rem
+	transition: all .3s ease
+
+.header, .mobile
+	padding-top: 3.5rem
+	margin-bottom: 3rem
+	position: relative
+	z-index: 35
+	.footer_menu-link
+		display: none
+	.hidden_xs
+		width: 74.8%
+	hr
+		max-width: 168rem
+		margin-left: auto
+		margin-right: auto
+		height: 2px
+		background-color: $blue-dark
+		margin-bottom: 2.3rem
+	.tel_link
+		display: none
+	.logo
+		width: 30rem
+		display: block
+	&_top
+		gap: 5rem
+		&-wrapper
+			gap: 5rem
+			margin-bottom: 3rem
+	&_bottom
+		&-wrapper
+			font-size: 2rem
+			line-height: 2.4rem
+			gap: 10.6rem
+			> div
+				flex: 0 0 auto
+				max-width: 32rem
+	&_title
+		text-transform: uppercase
+		font-size: 4rem
+		line-height: 4.8rem
+		letter-spacing: .22rem
+	&_socials
+		display: flex
+		gap: 2.5rem
+		margin-right: 4rem
+		&-icon
+			width: 4rem
+			height: 4rem
+			display: inline-flex
+			align-items: center
+			justify-content: center
+	&_call
+		position: relative
+		top: .5rem
+		gap: 3rem
+		.semibold
+			font-size: 2.5rem
+			line-height: 3rem
+			margin-top: .8rem
+		img
+			width: 9.5rem
+	&_info
+		a
+			display: flex
+			gap: 1.1rem
+			align-items: flex-start
+			margin-bottom: 1.5rem
+			&:last-of-type
+				margin-bottom: 0		
+		&-icon
+			height: 2.4rem
+			display: inline-flex
+			align-items: center
+			justify-content: center
+			flex: 0 0 auto
+	&_menu
+		.menu
+			padding: 0
+			margin: 0
+			list-style-type: none
+			display: flex
+			flex-wrap: wrap
+			align-items: center
+			gap: 0rem
+			font-size: 2rem
+			line-height: 2.4rem
+			font-weight: 500
+			text-transform: uppercase
+			// justify-content: space-between
+			> li
+				position: relative
+				transition: all .3s ease
+				border-right: 1px solid #ccc
+				padding: 1rem 1.2rem
+				&.menu-item-has-children 
+					&:after
+						content: '' 
+						background-image: url('../img/arrow-b.svg')
+						background-repeat: no-repeat
+						background-position: center
+						background-size: cover
+						width: 1rem
+						height: 1rem
+						display: inline-block
+						vertical-align: middle
+						position: relative
+						top: -.2rem
+						margin-left: .5rem
+				&:nth-last-child(2)
+					border-right: none
+				&:hover
+					.sub-menu
+						display: block
+			.sub-menu
+				margin: 0
+				padding: 0
+				list-style-type: none
+				background-color: #fff
+				box-shadow: 0 0 5px 5px rgba(0,0,0,.1)
+				border-radius: 1rem
+				padding: 1.5rem
+				left: 0
+				top: 100%
+				margin-top: 0rem
+				position: absolute
+				min-width: 35rem
+				font-size: 1.6rem
+				line-height: 2rem
+				transition: all .3s ease
+				display: none
+
+.mobile_menu
+	display: none
+
+.header
+	.header_menu
+		.home_link 
+			width: 3.1rem
+			height: 3.1rem
+			color: transparent
+			background-image: url('../img/home-house.svg')
+			background-repeat: no-repeat
+			background-position: center
+			background-size: cover
+			border-right: none
+			a
+				color: transparent
+		.cart_link 
+			width: 3.1rem
+			height: 3.1rem
+			color: transparent
+			background-image: url('../img/cart.svg')
+			background-repeat: no-repeat
+			background-position: center
+			background-size: cover
+			position: relative
+			border-right: none
+			.product-number
+				opacity: 1
+			a
+				color: transparent	
+	.product-number
+		width: 2rem
+		height: 2rem
+		background-color: $blue-dark
+		color: $white
+		display: flex
+		align-items: center
+		justify-content: center
+		position: absolute
+		top: -.5rem
+		right: -1rem	
+		border-radius: 100%		
+		opacity: 0
+		font-size: 1.4rem
+
+.item-5139
+	display: none!important	
+
+.toggle_menu
+	position: fixed
+	z-index: 101
+	display: none
+	width: 4rem
+	height: 4rem
+	background-image: url('../img/toggle_menu.svg')
+	background-repeat: no-repeat
+	background-position: center
+	top: 2.3rem
+	right: 1rem
+	&.toggled
+		background-color: $blue-d
+		background-image: url('../img/close.svg')
+
+.image_bg
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	object-fit: cover
+	z-index: 10
+	img
+		width: 100%
+		height: 100%
+		object-fit: cover
+
+.bordered
+	border: 1px solid $white
+	border-radius: 5px
+
+.bordered_overlay
+	position: relative
+	&:hover
+		&:before
+			transform: scale(1.5)
+			z-index: -1
+			opacity: 0
+		img
+			z-index: 20
+			position: relative
+	&:before
+		content: ''
+		border: 1px solid $white
+		width: calc(100% - 4rem)
+		height: calc(100% - 6rem)
+		top: 2rem
+		left: 2rem
+		position: absolute
+		z-index: 20
+		border-radius: 5px
+		transition: all .3s ease
+	&.wp-block-column
+		&:before
+			height: calc(100% - 4rem)
+	&.wp-block-image 
+		&:before
+			height: calc(100% - 4rem)		
+
+.select2-container--default .select2-selection--single
+	border-radius: 0
+	margin: 0
+
+.select2-container--open .select2-dropdown--below
+	border: 1px solid #aaa
+	border-radius: 4px
+
+.btn,.wp-block-button__link,.wc-block-components-checkout-place-order-button, .tml-button, #place_order
+	text-decoration: none!important
+	min-width: 30rem
+	background-color: $accent
+	color: $white
+	transition: all .3s ease
+	border: 1px solid $accent
+	padding: 1.5rem
+	font-size: 2.4rem
+	line-height: 2.8rem
+	font-weight: 500
+	display: inline-block
+	cursor: pointer
+	border-radius: 5px
+	&:hover
+		opacity: 1
+		border-color: $blue-d3
+		background-color: $blue-d3
+		color: $white
+
+
+	
+.text_c
+	text-align: center
+
+.text_l
+	text-align: left
+
+//hero
+.hero
+	position: relative
+	min-height: 60rem
+	padding: 8rem 0 13.2rem
+	display: flex
+	align-items: center
+	justify-content: center
+	overflow: visible
+	z-index: 30
+	&_title
+		margin-top: 3rem
+		margin-bottom: 3.2rem
+		color: $white
+		font-size: 10rem
+		line-height: 12.4rem
+	&:after
+		content: ''
+		position: absolute
+		z-index: 20
+		bottom: -6rem
+		left: 0
+		width: 100%
+		height: 11.2rem
+		background-repeat: no-repeat
+		background-position: center
+		background-image: url('../img/flag_bg.svg')
+		background-size: cover
+	.btn
+		margin-bottom: 6rem
+
+figure
+	margin-bottom: 2rem
+	margin-top: 0
+	&:last-of-type
+		margin-bottom: 0
+
+.iframe_wrap
+	iframe
+		width: 100%
+
+.wp-block-image
+	img
+		transition: all .3s ease
+		cursor: pointer
+		border-radius: 5px
+		&:hover
+			opacity: .8
+
+.content
+	padding: 10rem 0
+	h2
+		@include title
+	p
+		font-size: 2.4rem
+		line-height: 3.1rem
+		margin-bottom: 3.5rem
+		margin-top: 0
+		&:last-of-type
+			margin-bottom: 0
+	.show_more
+		a
+			font-style: italic
+			text-decoration: underline
+	ul, ol
+		font-size: 2.4rem
+		line-height: 2.8rem
+		margin: 0
+		padding-left: 6.5rem
+		list-style-type: square
+		li
+			margin-bottom: 3.1rem		
+
+.short_description
+	margin-bottom: 2rem
+
+.large_description > div
+	margin-bottom: 2rem
+
+.short_description ~ div
+	display: none
+
+.owl-prev,
+.owl-next
+	color: transparent
+	width: 3.1rem
+	height: 7rem
+	position: absolute
+	z-index: 20
+	top: calc(50% - 3.5rem)
+	background-size: contain
+	background-repeat: no-repeat
+	background-position: center
+	background-size: cover!important
+	span
+		display: none
+
+.toggled_menu-bg
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	background-color: rgba(255,255,255,.6)
+	z-index: 99
+	
+section
+	position: relative
+	z-index: 20
+	overflow: hidden
+
+.owl-prev
+	left: -3rem
+	background-image: url('../img/arrow-prev.svg')!important
+
+.owl-next
+	right: -3rem
+	background-image: url('../img/arrow-next.svg')!important
+
+.owl-dots
+	position: relative
+	z-index: 20
+	display: flex
+	justify-content: center
+	align-items: center	
+		
+.owl-dot
+	width: 10px
+	height: 10px
+	background-color: rgba(0,0,0,.5)!important
+	margin: 0 7px
+	border-radius: 100%
+	margin-top: 6.2rem
+	&.active
+		width: 14px
+		height: 14px
+		background-color: rgba(255,255,255,.5)!important
+
+.onsale
+	position: absolute
+	font-size: 2.7rem
+	line-height: 3.6rem
+	color: $white
+	top: 1.4rem
+	right: 1.4rem
+	background-color: #ff5757
+	z-index: 20
+	text-transform: uppercase
+	padding: 0 .5rem
+
+.boats
+	padding-bottom: 5.8rem
+	.commnet_avarage
+		background-color: transparent
+		padding: 0
+		margin-bottom: 0
+	&_title
+		@include title
+	&_slider, &_grid
+		padding: 0 3.8rem
+		&-item
+			height: 100%
+			border-radius: 5px
+			overflow: hidden
+			&.comming_soon
+				background-color: #303F5180
+				display: flex
+				align-items: center
+				justify-content: center
+				.comming_soon-title
+					background-color: #FFFFFF1A
+					color: $white
+					max-width: 36rem
+					width: 100%
+					font-size: 4rem
+					line-height: 5.2rem
+					text-align: center
+					padding: 8.3rem 1rem
+					border-radius: 5px
+			&-special
+				position: absolute
+				font-size: 2.7rem
+				line-height: 3.6rem
+				color: $white
+				top: 1.4rem
+				right: 1.4rem
+				background-color: #ff5757
+				z-index: 20
+				text-transform: uppercase
+				padding: 0 .5rem
+				border-radius: 5px
+			.commnet_avarage
+				background-color: hsla(0,0%,100%,.15)
+				padding: .8rem
+				margin-bottom: 1rem
+				justify-content: center
+				border-radius: 5px
+				.commnet_avarage-rating
+					height: 3rem
+					width: 15.8rem
+					span, &:before
+						background-size: cover
+			.btn
+				max-width: 28rem
+				margin-left: auto
+				margin-right: auto
+				text-align: center
+				display: block
+				margin-top: 3rem
+			&-price
+				font-size: 2rem
+				line-height: 2.6rem
+				font-weight: 500
+				color: $white
+				padding: .9rem 3rem
+				margin-bottom: .9rem
+				border-radius: 5px
+				background-color: rgba(255,255,255,.15)
+			&-attr
+				display: flex
+				flex-wrap: wrap
+				gap: 2%
+				justify-content: flex-start
+				font-size: 2rem
+				line-height: 2.6rem
+				color: $white
+				margin-bottom: 2rem
+				text-align: left
+				> div
+					width: 48%
+			&-bottom
+				background-color: #303F51B2
+				padding: 2rem 3rem 3.5rem
+				height: 58%
+				display: flex
+				flex-direction: column
+				justify-content: space-between
+			&-top
+				position: relative
+				height: 35.7rem
+				width: 100%
+				display: flex
+				align-items: flex-end
+				img
+					position: absolute
+					width: 100%
+					height: 100%
+					object-fit: cover
+					z-index: 10
+					top: 0
+					left: 0
+			&-title
+				color: $white
+				font-size: 4rem
+				line-height: 4.8rem
+				padding: 2.6rem 3rem
+				background-color: #303F5199
+				position: relative
+				z-index: 15
+				width: 100%
+				text-transform: uppercase
+				margin: 0
+
+.banners
+	max-width: 152rem
+	margin-left: auto
+	margin-right: auto
+	padding: 5rem 0
+	.flex
+		gap: 8rem
+		// flex-wrap: wrap
+		justify-content: space-between
+	img
+		border-radius: 5px
+
+.faq
+	&_title
+		display: inline-block
+		@include title
+	&_toggle
+		padding-left: 12rem
+		width: 53.55%
+	&_gallery
+		background-color: #09B2D40D
+		padding: 3.2rem
+		width: 46.65%
+		position: relative
+		&::before
+			content: ''
+			position: absolute
+			z-index: 20
+			// top: 9%
+			top: 12rem
+			right: 0
+			height: 89%
+			width: 75%
+			border: 1px solid $white
+		&-wrapper
+			width: 55rem
+			margin-left: auto
+			margin-right: auto
+			position: relative
+			padding-top: 3rem
+			.green_bg
+				display: block
+				width: 36.4rem
+				height: 53.6rem
+				background-color: $green
+				position: absolute
+				top: 0
+				right: 0
+				z-index: 5
+				border-radius: 5px
+			picture
+				position: relative
+				z-index: 10
+				display: block
+				img
+					position: absolute
+					top: 0
+					left: 0
+					height: 100%
+					width: 100%
+					object-fit: cover
+					object-position: center
+					border-radius: 5px
+				&:nth-of-type(odd)
+					width: 44.2rem
+					height: 29.4rem
+					margin-top: 3rem
+					margin-left: 3rem
+					margin-bottom: -4.6rem
+					z-index: 15
+				&:nth-of-type(even)
+					width: 37.6rem
+					height: 50rem	
+					margin-left: 0
+					margin-right: auto	
+					margin-bottom: -7.5rem		
+					
+.toggle
+	&.toggled
+		.toggle_title
+			background-color: #09B2D40D
+			border-color: $blue-l
+		.toggle_text
+			height: auto
+			opacity: 1
+			padding-top: 3rem
+			padding-bottom: 3rem
+	&_title
+		font-size: 2.4rem
+		line-height: 3.1rem
+		font-weight: 600
+		position: relative
+		padding: 2.4rem 3rem
+		display: flex
+		cursor: pointer
+		transition: all .3s ease
+		box-shadow: 0 0 15px 5px rgba(0,0,0,.05)
+		border-bottom: 1px solid transparent
+		border-radius: 5px 5px 0 0
+		&:hover
+			background-color: #09B2D40D
+		&:before
+			content: ''
+			display: inline-block
+			background-image: url('../img/arrow-b.svg')
+			background-repeat: no-repeat
+			background-position: center
+			background-size: cover
+			min-width: 1rem
+			max-width: 1rem
+			margin-top: 1.3rem
+			height: 0.4rem
+			margin-right: 1.2rem
+	&_text
+		padding: 0rem 3rem
+		font-size: 2rem
+		line-height: 2.6rem	
+		height: 0
+		transition: all .3s ease
+		opacity: 0
+		background-color: #09B2D40D
+		box-shadow: 0 0 15px 5px rgba(0,0,0,.05)
+
+
+.text_video
+	padding-top: 10rem
+	padding-bottom: 7rem
+	.flex
+		gap: 8rem
+	&-iframe
+		min-width: 60rem
+		max-width: 60rem
+		height: 36rem
+		border-radius: 5px
+		overflow: hidden
+		iframe
+			width: 100%
+			height: 100%
+			object-fit: cover
+	&-title
+		@include title
+		margin-bottom: 5rem
+		&:after
+			margin-left: 0
+	p
+		font-size: 2.4rem
+		line-height: 2.88rem	
+		letter-spacing: 0.05em
+
+.grid
+	display: grid
+
+.news
+	&_title
+		@include title
+		margin-bottom: 5rem
+	&_wrapper
+		background-color: #09B2D40D
+		padding-top: 5rem
+		padding-bottom: 10rem
+	.grid
+		grid-template-columns: repeat(3, 1fr)
+		grid-template-rows: repeat(2, 1fr)
+		grid-column-gap: 5rem
+		grid-row-gap: 5rem
+		> div
+			&:nth-child(2)
+				grid-area: 1 / 2 / 2 / 4!important
+			&:nth-child(3)
+				grid-area: 2 / 2 / 3 / 4!important
+			&:first-child
+				grid-area: 1 / 1 / 3 / 2!important
+				height: 57rem
+	&_wrapper
+		&-item
+			position: relative
+			height: 26rem
+			display: flex
+			align-items: flex-end
+			&:before
+				height: calc(100% - 4rem)
+			&:nth-child(2),
+			&:nth-child(3)
+				.news_wrapper-item-descr
+					width: 53%
+					padding: 3.4rem 3rem 3rem 3rem
+					margin-right: 0
+					margin-left: auto
+			&:first-child
+				.news_wrapper-item-descr
+					height: 60%
+					p
+						height: 15.5rem
+			&:nth-child(n+4)
+				.news_wrapper-item-descr
+					text-align: center
+					display: flex
+					flex-direction: column
+					justify-content: center
+					align-items: center
+					padding-bottom: .8rem
+			&-image	
+				background-color: $green
+				display: block
+				width: 100%
+				height: 100%
+				position: absolute
+				top: 0
+				left: 0
+				width: 100%
+				height: 100%
+				border-radius: 5px
+				overflow: hidden
+				img
+					position: absolute
+					top: 0
+					left: 0
+					width: 100%
+					height: 100%		
+					z-index: 10
+					object-fit: cover
+			&-descr
+				position: relative
+				z-index: 25		
+				background-color: rgba(255,255,255,.7)
+				padding: .8rem 6rem 5rem
+				height: 100%
+				width: 100%
+			&-title
+				font-size: 3.5rem
+				line-height: 4.5rem
+				margin-bottom: 1.4rem
+				height: 4.5rem
+				overflow: hidden
+			p
+				font-size: 2.4rem
+				line-height: 3.1rem
+				margin-bottom: 1.4rem
+				margin-top: 0
+				height: 6.2rem
+				overflow: hidden
+			.btn
+				max-width: 22.6rem
+				min-width: 22.6rem
+				text-align: center
+				font-size: 2.4rem
+				line-height: 3.1rem
+				padding: .6rem 1rem
+				display: block
+				margin-left: auto
+				margin-right: auto
+
+.large_banner
+	padding: 5.5rem 0
+	img
+		border-radius: 5px
+
+.reviews
+	min-height: 69.1rem
+	padding-top: 4.6rem
+	padding-bottom: 4.6rem
+	&_title
+		@include title
+		display: inline-block
+		margin-bottom: 5rem
+
+body .ti-widget.ti-goog 
+	.source-Google 
+		.ti-stars
+			display: flex
+			gap: .5rem
+			margin-top: .8rem!important
+			margin-bottom: 3rem!important
+		.ti-star.f
+			background-image: url('../img/star-gr.svg')
+			background-size: cover
+			width: 20px
+			height: 20px
+	.ti-col-1
+		.ti-review-item
+			flex: 0 0 40%
+			max-width: 40%
+			> .ti-inner
+				min-height: 36rem
+				background-color: $white!important
+	.ti-reviews-container-wrapper
+		gap: 1.5%
+	.ti-widget-container 
+		*
+			font-size: inherit
+			line-height: inherit	
+		.ti-review-content
+			font-size: 2.4rem
+			line-height: 3.1rem	
+			min-height: 19rem	
+			text-align: left			
+		.ti-name
+			font-size: 2.4rem
+			line-height: 3.1rem
+			font-weight: 600
+			margin-bottom: 0.8rem
+			text-align: left
+		.ti-date
+			opacity: 1!important
+			font-size: 2.4rem!important
+			line-height: 3.1rem
+			font-weight: 300
+			text-align: left
+		.ti-read-more 
+			font-size: inherit
+			line-height: inherit
+			transition: all .3s ease
+			text-align: left
+			span
+				opacity: 1
+				font-size: 2.4rem
+				line-height: 3.1rem	
+				transition: all .3s ease
+	.ti-next, .ti-prev
+		width: 2.4rem
+		height: 7rem
+		background-size: cover
+		background-position: center
+		background-repeat: no-repeat
+		&:before,&::after
+			display: none!important
+	.ti-next
+		background-image: url('../img/arrow-next.svg')
+		right: -5rem!important
+	.ti-prev
+		background-image: url('../img/arrow-prev.svg')		
+		left: -5rem!important
+
+	
+.gallery
+	padding: 5rem 0
+	&_item
+		width: 40rem
+		height: 36rem
+		position: relative
+		display: block
+		img
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			object-fit: cover
+			object-position: center
+
+.gallery_popup
+	position: fixed
+	top: 50%
+	transform: translateY(-50%)
+	left: 0
+	right: 0
+	margin: 0 auto
+	z-index: 999
+	max-width: 120rem
+	max-height: 90vh
+	background-color: $white
+	border-radius: 1rem
+	padding: 4rem
+	display: none
+	text-align: center
+	img
+		max-width: 100%
+		max-height: 80vh
+	.close
+		background-color: transparent
+		position: absolute
+		top: .5rem
+		right: .5rem
+		cursor: pointer
+		img
+			width: 2.5rem
+
+.popup_opened
+	position: relative
+	&:before
+		content: ''
+		z-index: 900
+		width: 100%
+		height: 100%
+		position: fixed
+		display: block
+		top: 0
+		left: 0
+		background-color: rgba(0,0,0,.5)
+
+.gallery_wrap 
+	.gallery 
+		display: flex
+		flex-wrap: wrap
+		gap: 2rem
+		padding: 0
+		.gallery-item
+			width: auto
+			margin: 0
+			max-width: 19%
+			max-height: 21rem
+			.gallery-icon
+				height: 100%
+				a
+					display: block
+					height: 100%
+					img
+						width: 100%
+						height: 100%
+						object-fit: cover
+
+.footer
+	.terms_links-links
+		margin-bottom: 1rem
+		a
+			display: inline-block
+			text-decoration: underline	
+			margin: 0 .5rem
+	.tel_link
+		display: none!important
+	&-widget
+		width: 47rem
+		border-radius: 5px
+		overflow: hidden
+		.weather-atlas
+			&-wrapper
+				font-size: inherit
+			&-header
+				font-size: 2rem
+				line-height: 2.2rem
+			&-body
+				font-size: 1.5rem
+			&-footer
+				font-size: 1.8rem
+	&_top
+		background: linear-gradient(180deg, #3B6273 9.21%, #324068 69.34%)
+		padding-top: 2rem
+		position: relative
+		&-banner
+			img
+				border-radius: 5px
+		.bordered
+			padding: 1rem 1.5rem 5.2rem
+			z-index: 10
+		.flex
+			gap: 9rem
+		&:after
+			position: absolute
+			z-index: 15
+			bottom: -6rem
+			left: 0
+			display: block
+			content: ''
+			width: 100%
+			height: 11.2rem
+			background-image: url('../img/flag_bg.svg')
+			background-repeat: no-repeat
+			background-position: center
+			background-size: cover
+	&_middle
+		margin-top: 6rem
+		> .flex
+			gap: 4.4rem
+	&_aside
+		padding: 2rem
+		background-color: #09B2D40D
+		max-width: 51.4rem
+		min-width: 51.4rem
+		border-radius: 5px
+		&-contact
+			background-color: $white
+			padding-top: 5rem
+			padding-left: 5rem
+			padding-right: 5rem
+			border-radius: 5px
+			a
+				display: flex
+				align-items: center
+				gap: 1rem
+				font-size: 2rem
+				line-height: 2.4rem
+				margin-bottom: 3rem
+				&:first-of-type
+					align-items: flex-start
+				&:last-of-type
+					margin-bottom: 0
+			&-title
+				font-family: $default-font-b
+				font-size: 2.4rem
+				line-height: 3.2rem
+				text-transform: uppercase
+				display: block
+		&-socials
+			background-color: $white
+			gap: 5.1rem
+			padding: 5rem
+	&_main
+		width: 100%
+		&-top
+			gap: 5rem
+		&-bottom 
+			padding: 2rem
+			gap: 2rem
+			background-color: #09B2D40D
+			height: 21.7rem
+			margin-top: 3rem
+			border-radius: 5px
+			ul
+				margin: 0
+				padding: 0
+				list-style-type: none
+			> div
+				width: 28.3rem
+				&.footer_main-bottom-trustindex
+					border-radius: 5px 5px 0 0
+					overflow: hidden
+			&-info
+				padding: .5rem
+				background-color: $white
+				border-radius: 5px
+				p
+					font-size: 1.8rem
+					line-height: 2.4rem
+					color: $blue-l
+					margin: 0
+			&-trustindex
+				.cx_brand_refresh
+					width: 100%!important
+					height: 17.7rem
+					margin: 0!important
+	.header_menu
+		.menu
+			font-size: 2.4rem
+			line-height: 2.8rem
+			text-transform: inherit
+		.cart_link
+			display: none 
+	&_copyright
+		background-color: $blue-d2
+		color: $white
+		font-size: 1.6rem
+		line-height: 2.2rem
+		padding-bottom: 3rem
+		margin-top: 3rem
+		padding-top: .1rem
+		.bordered
+			padding-top: 2.3rem
+			padding-bottom: 2.3rem
+			margin-top: -.2rem
+	hr
+		height: 2px
+		max-width: 141.8rem
+		margin-left: auto
+		margin-right: auto
+		margin-top: 3rem
+		margin-bottom: 3rem
+		opacity: 1
+		background-color: $blue-dark
+		
+
+body #CDSWIDEXC.widEXC .bravoBox
+	height: auto
+
+body #CDSWIDEXC.widEXC .bravoBox .bravoWrapper .bravoText
+	font-size: 2.8rem
+	line-height: 4rem
+
+body #CDSWIDEXC.widEXC.cx_brand_refresh .widEXCLINK, #CDSWIDEXC.widEXC.cx_brand_refresh .widEXCLINK a
+	font-size: 2rem
+	line-height: 3.2rem
+
+body #CDSWIDEXC.widEXC.cx_brand_refresh img#CDSWIDEXCLOGO.widEXCIMG
+	width: 180px
+	margin-top: 10px
+
+.mt-5 
+	margin-top: 5rem
+	
+.mb-5
+	margin-bottom: 5rem
+
+//entry
+
+.wp-element-caption
+	margin-top: 0
+	font-size: 2.4rem
+	line-height: 2.8rem
+	font-weight: 500
+	margin-bottom: 2.7rem
+
+.inline-b
+	padding: .5rem!important
+	display: inline-block
+	+ p
+		display: inline-block
+
+.text_r
+	text-align: right
+
+.entry
+	&_content
+		padding-bottom: 3rem
+	&_header
+		position: relative
+		min-height: 30rem
+		position: relative
+		padding: 7.5rem 0
+	&_title
+		font-family: $default-font-b
+		font-size: 5rem
+		line-height: 6.2rem
+		text-align: center
+		background-color: #FFFFFF4D
+		padding: 4.4rem 0
+		color: $white
+		text-transform: uppercase
+		border-radius: 5px
+	a
+		text-decoration: underline
+	.btn a
+		text-decoration: none
+	h2
+		@include title
+		&:after
+			max-width: 35rem
+		&.has-text-align-left
+			&:after
+				margin-left: 0	
+	h3
+		font-size: 3.5rem
+		line-height: 4.2rem
+		font-family: $default-font-b
+		margin-bottom: 2rem
+	p, .wp-element-caption
+		margin-top: 0
+		font-size: 2.4rem
+		line-height: 2.8rem
+		font-weight: 500
+		margin-bottom: 2.7rem
+		min-height: 2.7rem
+		&:last-of-type
+			margin-bottom: 0
+	.wp-element-caption, .wp-element-caption
+		text-align: center
+		font-size: 1.8rem
+		line-height: 2.2rem
+		font-style: italic
+		color: $blue-d2
+		margin-bottom: 1.5rem!important
+	.wp-block-group
+		padding: 5rem 0
+	.wp-block-columns
+		max-width: 160rem
+		margin-left: auto
+		margin-right: auto
+		gap: 5rem
+		align-items: center
+	ul, ol
+		font-size: 2.4rem
+		line-height: 2.8rem
+		margin: 0
+		padding-left: 6.5rem
+		list-style-type: square
+		li
+			margin-bottom: 3.1rem
+
+.product_simple
+	.product-gallery
+		max-width: 70%
+	.product-attribute
+		max-width: 30%
+	.btn
+		margin-top: 2rem
+		width: 100%
+		text-align: center
+		&.disable
+			opacity: .4
+			pointer-events: none
+	label
+		margin-bottom: 1rem
+		display: block
+	.simple_notice
+		font-size: 2rem
+		line-height: 2.8rem
+		margin-top: 2rem
+	
+.boats
+	&_wrapper
+		&-item
+			display: flex
+			align-items: stretch
+			// gap: 5rem
+			margin-bottom: 5rem
+			border-radius: 5px
+			overflow: hidden
+			&:last-of-type
+				margin-bottom: 0
+			&-special
+				position: absolute
+				font-size: 2.7rem
+				line-height: 3.6rem
+				color: $white
+				top: 1.4rem
+				right: 1.4rem
+				background-color: #ff5757
+				z-index: 20
+				text-transform: uppercase
+				padding: 0 .5rem
+			&-left
+				width: 38.7%
+				// height: 43.2rem
+				position: relative
+				img
+					position: absolute
+					top: 0
+					left: 0
+					width: 100%
+					height: 100%
+					object-fit: cover
+			&-right
+				// width: 58.5%
+				width: 61.5%
+				background-repeat: no-repeat
+				background-position: center
+				background-size: cover
+				background-image: url('../img/png/reserv-1.png')
+				padding: 1.5rem
+				display: flex
+				flex-direction: column
+				justify-content: space-between
+				&-top
+					background-color: #FFFFFF80
+					padding: 1.3rem 3rem
+					border-radius: 5px
+				&-middle
+					padding: 3rem
+					font-size: 2.4rem
+					line-height: 2.88rem
+					// height: 11.7rem
+					overflow: hidden
+				&-bottom
+					background-color: #FFFFFF80
+					padding: 2.4rem 3rem	
+					gap: 2rem		
+					width: 100%		
+					border-radius: 5px
+					&.simple-product-bottom
+						flex-direction: column
+						align-items: center
+						gap: 2rem
+						border-radius: 5px
+				.flex
+					gap: 1rem
+			&-title
+				font-size: 4.5rem
+				line-height: 5.4rem
+				font-weight: 600
+				color: $blue-dark
+				text-transform: uppercase
+			&-rating
+				min-width: 30rem
+				gap: 3rem
+			&-attr
+				font-size: 3rem
+				line-height: 3.6rem
+				font-weight: 500
+				display: flex
+				justify-content: space-between
+				align-items: center
+				flex-wrap: wrap
+				column-gap: 1%
+				row-gap: 3rem
+				width: 100%
+				> div
+					width: 48%
+					display: flex
+					align-items: center
+					gap: 2.4rem
+					&.attr_time
+						position: relative
+						top: 3.5rem
+			&-price
+				font-size: 4.5rem
+				line-height: 5.4rem
+				font-family: $default-font-b
+				display: flex
+				align-items: flex-start
+				flex-direction: column
+				min-width: 13rem
+				span
+					font-size: 2.4rem
+					line-height: 2.88rem
+					font-weight: 500
+	&_text
+		font-size: 2rem
+		line-height: 2.4rem
+		padding: 5rem 4rem
+		p
+			margin-bottom: 0
+	&_blue
+		background-color: #09B2D41A
+		padding: 5rem
+		font-size: 2.4rem
+		line-height: 2.88rem
+		border-radius: 5px
+		p
+			margin-bottom: 5rem
+			text-align: left
+		img
+			max-width: 65.4rem
+
+//single product
+
+.woocommerce
+	&-order
+		display: flex
+		gap: 3rem
+		justify-content: space-between
+		h2
+			&::after
+				margin-left: 0	
+		table 
+			td, th
+				padding: 1rem
+				border-bottom: 1px solid #ccc
+		.woocommerce-order-wrap
+			width: 35% 
+			+ p 
+				display: none
+			h2
+				margin-bottom: 2rem
+				margin-top: 2rem
+			.woocommerce-notice
+				@include title
+				margin-bottom: 2rem
+				&::after
+					margin-left: 0
+		.woocommerce-order-details-wrap
+			width: 65%
+			h2
+				margin-bottom: 2rem
+		ul
+			padding-top: 1rem
+			padding-left: 2.5rem
+			li
+				margin-bottom: 1rem
+	.wc-item-meta
+		padding: 0 0 0 1.2rem
+		margin-top: 1rem
+		list-style-type: none
+		li
+			margin-bottom: 0
+			p
+				margin-bottom: 0
+	&-error
+		background-color: #FF797966
+		font-size: 2.4rem
+		line-height: 2.8rem
+		font-weight: 500
+		padding: 1rem
+	address
+		font-size: 2rem
+		line-height: 2.4rem
+	&-checkout
+		#amount_people_field, #booking_date_field, #message_field, #size_field
+			display: none
+		.woocommerce-billing-fields__field-wrapper
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-between
+			align-items: flex-end
+			gap: 1%
+			row-gap: 2rem
+			> p 
+				width: 48%!important
+				margin-bottom: 0
+				label
+					margin-bottom: 1.2rem
+					display: block
+		.col2-set .form-row-first
+			margin: 0
+		.col-2
+			display: none
+		.checkout 
+			.flex
+				gap: 2rem
+				> div
+					width: 50%
+		h3
+			@include title
+			&::after
+				margin-left: 0
+		.cart_item
+			td
+				border-bottom: 1px solid #ccc
+				padding: 1rem
+		tfoot, thead
+			th, td
+				border-bottom: 1px solid #ccc
+				padding: 1rem
+		.wc-ppcp-checkout-container
+			max-width: 25rem
+		.wc_payment_methods
+			padding: 0
+			list-style-type: none
+			li
+				padding: 1rem
+				border: 1px solid #ccc
+				border-radius: 5px
+				input
+					position: relative
+					top: -2px
+				p
+					margin-bottom: 0
+			.payment_box 
+				p
+					color: #ccc
+					font-size: 1.6rem
+		.product-name
+			width: 65%
+		.product-total
+			width: 35%
+		.col2-set
+			label
+				margin-bottom: 1.5rem
+				display: block
+		.shop_table 
+			text-align: left
+			font-size: 2.4rem
+			line-height: 2.8rem
+			font-weight: 500
+			color: $blue-dark
+	&-notices
+		&-wrapper
+			max-width: 120rem
+			margin: 2rem auto
+			.woocommerce-message
+				background-color: #51d67e66
+				font-size: 2.4rem
+				line-height: 2.8rem
+				color: $blue-dark
+				font-weight: 500
+				padding: 2rem
+	&-product
+		&-gallery
+			display: flex
+			flex-direction: row-reverse
+			gap: 3rem
+			justify-content: space-between
+			float: none!important
+			.flex-control-nav
+				display: flex
+				flex-direction: column
+				min-width: 30rem
+				max-width: 30rem
+				gap: 3rem
+				height: 81rem
+				overflow: hidden
+				li
+					width: 100%!important
+					height: 18rem
+					position: relative
+					flex: 0 0 auto
+					img
+						position: absolute
+						top: 0
+						left: 0
+						width: 100%
+						height: 100%
+						object-fit: cover
+						object-position: center
+						border-radius: 5px
+			&__image
+				height: 81rem
+				width: 100%
+				position: relative
+				border-radius: 5px
+				overflow: hidden
+				img
+					height: 81rem
+					max-height: 81rem
+					width: 100%
+
+.wc-block-cart-item__image a, .wc-block-components-product-name
+		text-decoration: none!important
+		pointer-events: none
+	
+.product
+	&-head
+		h1
+			text-transform: uppercase
+			@include title
+			margin-bottom: 5rem
+			margin-top: 10rem
+			display: inline-block
+	.boats_wrapper-item-attr
+		> div
+			width: 32%
+		&-length
+			flex-direction: column
+			align-items: flex-start
+			gap: 0
+		&-middle
+			align-items: flex-start
+	.boats_wrapper-item-right-bottom
+		background-color: #09B2D41A
+		padding: 2.4rem 9.1rem
+		margin: 5rem 0
+		border-radius: 5px
+		.title
+			font-size: 3rem
+			line-height: 3.6rem
+			font-weight: 500
+		.value
+			display: flex
+			gap: 1.7rem
+			font-size: 4.5rem
+			line-height: 5.4rem
+			font-family: $default-font-b
+	&-calendar
+		position: relative
+		iframe
+			width: 100%
+	&-content
+		font-size: 2.4rem
+		line-height: 2.88rem
+		margin-bottom: 10rem
+
+.radio_buttons
+	.woocommerce-input-wrapper
+		display: flex
+		align-items: center
+		gap: 1rem
+		label
+			margin: 0!important
+
+#pick_up_transfer_field
+	display: none
+
+.booking
+	margin: 10rem 0
+	&_title
+		@include title
+		margin-bottom: 5rem
+		display: inline-block
+	&_form
+		background-color: #09B2D41A
+		padding: 5rem 0
+		min-height: 96.4rem
+		label
+			font-size: 2.4rem
+			line-height: 2.8rem
+			color: $blue-dark
+			font-weight: 500
+			text-align: left
+			&:not(.selected),&:not(.radio)
+				display: block
+		.total
+			text-align: center
+		form
+			max-width: 111rem
+			margin-left: auto
+			margin-right: auto
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-between
+			column-gap: 2%
+			row-gap: 2rem
+			text-align: left
+			.col_50
+				width: 45%
+			.col_100
+				width: 100%
+			.selected
+				margin-top: 1rem
+				padding: 1.5rem
+				font-size: 2.4rem
+				line-height: 3.1rem
+				font-weight: 500
+				text-transform: uppercase
+				background-color: $blue-d
+				color: $white
+				min-width: 26rem
+				display: inline-block
+				text-align: center
+				border-radius: 5px
+			.optional
+				display: none
+			textarea
+				min-height: 23.1rem
+			.tooltip_wrap
+				> label
+					display: none
+			.pickup_fields
+				input, select
+					padding: 2.5rem
+				label
+					margin-bottom: 1.4rem
+					&:last-of-type
+						margin-top: 2rem
+			.additional_field label
+				display: flex
+				gap: 1rem
+				position: relative
+				cursor: pointer
+				align-content: center
+				align-items: center
+				input
+					max-width: 4rem
+					min-width: 4rem
+					height: 4rem
+					opacity: 0
+				&.checked
+					.optional
+						&:before
+							opacity: 1
+				.optional
+					display: block
+					min-width: 4rem
+					max-width: 4rem
+					height: 4rem
+					background-color: $white
+					border: 1px solid $blue-l2
+					border-radius: 5px
+					position: relative
+					left: 0
+					color: transparent
+					&:before
+						opacity: 0
+						transition: all .3s ease
+						content: ''
+						width: 2rem
+						height: 2rem
+						top: 1rem
+						left: 1rem
+						position: absolute
+						background-color: $blue-d
+			.choice_fields
+				display: flex
+				column-gap: 4rem
+				row-gap: 3rem
+				flex-wrap: wrap
+				> label
+					display: none
+					&:first-of-type
+						display: block
+						width: 100%
+						margin-bottom: -1rem
+				p
+					display: block
+					flex: 0 0 auto
+					.woocommerce-input-wrapper
+						display: flex
+						flex-wrap: wrap
+						column-gap: 4rem
+						row-gap: 3rem
+						position: relative
+					label
+						border: 1px solid $blue-l2
+						background-color: $white
+						border-radius: 5px
+						padding: 1.5rem
+						min-width: 26rem
+						text-align: center
+						font-size: 2.4rem
+						line-height: 3.1rem
+						font-weight: 600
+						cursor: pointer
+						margin-bottom: 0
+						transition: all .3s ease
+						&:hover, &.active
+							color: $white
+							border-color: $blue-d
+							background-color: $blue-d
+					.boat_name-field
+						position: absolute
+						top: 0
+						left: 0
+						z-index: -1
+						opacity: 0
+			
+.tooltip
+	color: $blue-l2
+	font-size: 1.8rem
+	line-height: 2.3rem
+	position: relative
+	display: flex
+	gap: .4rem
+	margin-top: 0.5rem
+	cursor: pointer
+	align-items: center
+	&:before
+		content: ''
+		display: inline-block
+		min-width: 1.8rem
+		height: 1.8rem
+		background-repeat: no-repeat
+		background-position: center
+		background-image: url('../img/quest.svg')
+		background-size: cover
+	p
+		display: none!important
+		background-color: $white
+		border: 1px solid $blue-l2
+		top: 0
+		left: 0
+		min-width: 15rem
+		padding: .9rem
+		border-radius: .5rem
+		position: absolute
+		top: 100%
+	&:hover
+		p
+			display: block!important
+
+
+//product reviews
+
+.reviews
+	&_wrapper
+		position: relative
+		min-height: 8rem
+
+.product 
+	.reviews
+		padding-bottom: 0
+
+//related products
+
+.related
+	padding: 10rem 0
+	&_title
+		@include title
+		margin-bottom: 7.1rem	
+	&_slider, &_grid
+		padding: 0 6.4rem
+		&-item
+			border: 1px solid #ACEFFF
+			display: block		
+			position: relative
+			border-radius: 5px
+			overflow: hidden
+			&-sale
+				position: absolute
+				font-size: 2.7rem
+				line-height: 3.6rem
+				color: $white
+				top: 1.4rem
+				right: 1.4rem
+				background-color: #ff5757
+				z-index: 20
+				text-transform: uppercase
+				padding: 0 .5rem
+				min-width: 12rem
+				text-align: center
+				border-radius: 5px
+			&-top
+				gap: 1.2rem
+				justify-content: center
+				align-items: center
+				// picture
+					// &:first-of-type
+						// display: none
+			&-bottom
+				background-color: #09B2D41A
+				padding: 1.4rem 2.1rem
+			&-title
+				font-size: 3rem
+				line-height: 3.9rem
+				font-family: $default-font-b	
+				margin-bottom: 1.4rem
+			&-price
+				font-size: 4rem
+				line-height: 5.2rem
+				font-family: $default-font-b
+				display: flex
+				align-items: center
+				justify-content: center
+				gap: .5rem
+				.sale
+					color: #ff5757
+				.dashed
+					color: #ccc
+					text-decoration: line-through
+					font-size: 2.2rem
+					line-height: 3.2rem
+		.owl-dot
+			background-color: #000000CC!important
+			&.active
+				background-color: #9C989880!important
+		.owl-prev, .owl-next
+			width: 3.4rem
+			height: 9.8rem
+			top: calc(50% - 4.9rem)
+			background-size: 3.4rem!important
+			background-position: center!important
+			background-repeat: no-repeat!important
+		.owl-prev
+			background-image: url(../img/arrow-prev-g.svg)!important
+		.owl-next
+			background-image: url(../img/arrow-next-g.svg)!important
+
+.product_simple
+	.boats_wrapper-item-price
+		flex-direction: row
+		align-items: center
+		gap: 1rem
+		justify-content: center
+		span
+			font-size: 4rem
+			line-height: 4.5rem
+		.dashed
+			color: #ccc
+			text-decoration: line-through
+		.sale
+			color: #ff5757
+			font-size: 4.5rem
+			line-height: 4.5rem
+
+.woocommerce-Reviews, .reviews-comments
+	display: flex
+	justify-content: space-between
+	&-title, .comment-reply-title
+		font-size: 3rem
+		line-height: 3.9rem
+		font-family: $default-font-b
+		margin-bottom: 3rem
+		text-transform: uppercase
+		text-align: center
+	.comment-reply-title
+		text-align: center
+		display: block
+	#review_form_wrapper, .reviews-comments-form
+		width: 38%
+		padding-top: 3rem
+		padding-left: 12rem
+		border-left: .5rem solid $white
+		p
+			font-size: 2rem
+			line-height: 2.4rem
+	#comments, .reviews-comments-list
+		width: 62%
+		padding-top: 3rem
+		padding-right: 12rem
+		border-right: .5rem solid $white
+	.commentlist
+		margin: 0
+		padding: 0
+		list-style-type: none
+		li
+			padding: 1.4rem
+			background-color: #FFFFFF80
+			margin-bottom: 3rem
+			min-height: 20rem
+			.comment_container
+				display: flex
+				gap: 2.4rem
+			.comment-text
+				width: 100%
+				display: flex
+				flex-wrap: wrap
+				.star-rating
+					height: 3rem
+					position: relative
+					&:before
+						content: ''
+						position: absolute
+						top: 0
+						left: 0
+						width: 100%
+						height: 100%
+						opacity: .5
+						display: block
+						background-image: url('../img/stars-rev.svg')
+						background-repeat: repeat-x
+						background-position: left		
+						background-size: cover						
+					span
+						position: absolute
+						top: 0
+						left: 0
+						height: 100%
+						padding: 0
+						float: none
+						color: transparent
+						background-image: url('../img/stars-rev.svg')
+						background-repeat: repeat-x
+						background-position: left	
+						background-size: cover
+						height: 3rem					
+						&:before
+							display: none		
+			.meta
+				width: 70%
+				order: -1
+			.star-rating
+				min-width: 19.4rem
+				max-width: 19.4rem
+			img
+				width: 8rem
+				height: 8rem
+			.woocommerce-review__author, .comment-author
+				font-size: 2.4rem
+				line-height: 3.1rem
+				font-weight: 600
+				display: block
+				margin-bottom: .8rem
+			.comment-author
+				img
+					float: left
+					margin-right: 1.5rem
+			.woocommerce-review__dash
+				display: none
+			.woocommerce-review__published-date, .comment-metadata
+				font-size: 1.8rem
+				line-height: 2.3rem
+				font-weight: 300
+				margin-bottom: 1.8rem
+			.description, .comment-content
+				margin-top: 1.8rem
+				width: 100%
+				p
+					margin-bottom: 0
+					font-size: 2rem
+					line-height: 2.6rem
+			.comment-content
+				margin-top: 3rem
+	.comment-reply-title
+		margin-bottom: 3rem
+	p
+		margin: 0
+	label
+		font-size: 2.4rem
+		line-height: 3.1rem
+		font-family: $default-font-b
+		margin-bottom: 1rem
+		margin-top: 0
+		display: block
+		.required
+			color: $blue-dark
+	.comment-form
+		position: relative
+		padding-bottom: 5rem
+		p
+			margin-bottom: 3rem
+		.form-submit
+			text-align: center
+			margin-bottom: 0
+	p.stars 
+		margin-bottom: 3rem
+		a
+			width: 2.5rem
+			height: 2.5rem
+			background-image: url('../img/empty-star.svg')
+			background-repeat: no-repeat
+			background-position: center
+			background-size: 2.5rem
+			&:before
+				display: none
+			&.active
+				background-image: url('../img/star-icon-b.svg')
+				background-size: cover
+				opacity: 1
+	.comment-notes
+		position: absolute
+		bottom: 9.5rem
+		margin: 0
+		left: 0
+		font-size: 1.6rem
+		line-height: 2.1rem
+		font-weight: 300
+	input, select, textarea
+		resize: none
+		min-height: 6rem
+		padding: 1.4rem 1.4rem
+		font-size: 2.4rem
+		line-height: 2.88rem
+		font-weight: 500
+		outline: none
+		border: none
+		width: 100%
+		border-radius: 5px
+		&::placeholder
+			color: #00000080
+	.form-submit
+		margin-top: 7rem
+	#submit
+		min-width: 28.5rem
+		max-width: 28.5rem
+		background-color: $accent
+		color: $white
+		transition: all .3s ease
+		border: 1px solid $accent
+		padding: 1.5rem
+		font-size: 2.4rem
+		line-height: 2.8rem
+		font-weight: 500
+		display: inline-block
+		cursor: pointer
+		&:hover
+			opacity: 1
+			border-color: $blue-d3
+			background-color: $blue-d3
+			color: $white
+	
+.commnet
+	&_avarage
+		background-color: #FFFFFF80
+		padding: 1.4rem 3rem
+		display: flex
+		justify-content: space-between
+		align-items: center
+		margin-bottom: 3rem
+		flex-wrap: wrap
+		&-total
+			font-size: 2.4rem
+			line-height: 3.1rem
+			font-family: $default-font-b
+		&-rating
+			position: relative
+			height: 5rem
+			width: 26.2rem
+			&:before
+				content: ''
+				position: absolute
+				top: 0
+				left: 0
+				width: 100%
+				height: 100%
+				background-image: url('../img/stars-yellow.svg')
+				background-repeat: no-repeat
+				background-size: cover
+				opacity: .5
+			span
+				content: ''
+				position: absolute
+				top: 0
+				left: 0
+				width: 100%
+				height: 100%
+				background-image: url('../img/stars-yellow.svg')
+				background-repeat: no-repeat
+				background-size: cover
+
+
+.woocommerce-info, .woocommerce-noreviews, p.no-comments
+	font-size: 2rem
+	line-height: 3rem
+	background-color: transparent!important
+
+
+.boats_split
+	gap: 5rem
+	&-aside
+		min-width: 32rem
+		max-width: 32rem
+
+.related
+	&_grid
+		display: grid
+		grid-template-columns: repeat(2, 1fr)
+		gap: 5rem
+		&-item
+			display: flex
+			flex-direction: column
+			justify-content: space-between
+
+.boats_split
+	> .flex
+		gap: 5rem
+	&-aside
+		h3
+			font-size: 3rem
+			line-height: 4rem
+			margin-bottom: 2rem
+
+.filter_content
+	gap: 2rem
+
+.boats_wrapper
+	min-height: 30rem
+	
+.wp-block-woocommerce-cart,.wc-block-components-main,.wc-block-components-sidebar
+	max-width: 1640px
+	margin: 0 auto
+	font-size: 2rem
+	line-height: 3.2rem
+
+body .wp-block-woocommerce-checkout
+	margin: 0 auto
+
+body .entry_content .wc-block-components-title
+	&:after
+		margin-left: 0
+
+.hidden 
+	display: none!important
+
+.loading
+	position: relative
+	&:before
+		content: ''
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		position: absolute
+		z-index: 5
+		background-color: rgba(255,255,255,.8)
+
+.wc-ppcp-paypal__buttons
+	max-width: 22rem
+
+.wc-block-components-notice-banner
+	font-size: 2rem
+	line-height: 2.4rem
+
+
+.error-404
+	min-height: 30rem
+	text-align: center
+	.title
+		@include title
+	p
+		font-size: 2rem
+		line-height: 4rem
+
+.owl-carousel .owl-item img
+	width: 100%!important
+
+.single-product div.product .woocommerce-product-gallery .woocommerce-product-gallery__trigger
+	display: none!important
+
+.product 
+	.product-calendar tbody td .free > span
+		background-color: #51d67e
+		color: $blue-dark				
+
+.product
+	&-calendar
+		&-boats
+			display: none
+		.simcal-align-right
+			display: none!important
+		&_status
+			display: flex
+			gap: 3rem
+			align-items: center
+			margin-bottom: 1.6rem
+			.status
+				max-width: 24.2rem
+				display: block
+				width: 100%
+				font-size: 1.6rem
+				line-height: 1.9rem
+				font-weight: 300
+				background-color: #F5F5F5
+				text-align: center
+				padding: 1.1rem
+				text-transform: uppercase
+				min-height: 4.1rem
+				border-radius: 5px
+				&.free
+					background-color: #51d67e
+					color: $blue-dark					
+			.description
+				font-size: 2.4rem
+				line-height: 2.8rem
+		&-inner
+			// display: none
+			position: absolute
+			top: 0
+			left: 0
+			z-index: -1
+			opacity: 0
+			&.active
+				display: block
+				margin-bottom: 3rem
+				position: relative
+				z-index: 10
+				opacity: 1
+		&_tabs
+			display: flex
+			align-items: flex-end
+			position: absolute
+			left: 0
+			top: 13.7rem
+			z-index: 20
+		&-tab
+			font-size: 3rem
+			line-height: 3.6rem
+			text-transform: uppercase
+			font-weight: 300
+			width: 70rem
+			margin-right: 0
+			padding: 0
+			position: relative
+			cursor: pointer
+			border-top-left-radius: 5px
+			&:before
+				content: ''
+				position: absolute
+				top: 0
+				right: 0
+				width: 0px
+				height: 0px
+				border-style: solid
+				border-width: 0 2.2rem 2.2rem 0
+				border-color: transparent #fff transparent transparent
+				transform: rotate(0deg)	
+			div
+				background-color: #e5faf7
+				padding: .1rem 1.6rem
+				display: flex
+				justify-content: space-between
+				align-items: center
+				width: 100%
+			&:not(.active)
+				div
+					padding-right: 5.8rem
+			&.active
+				background-color: #D4F6F2
+				padding: 1.6rem 3.8rem 1.6rem 1.2rem
+				font-weight: 700
+				&:before
+					border-width: 0 3.2rem 3.2rem 0
+		h3
+			@include title
+			font-size: 5rem
+			line-height: 6rem
+			font-weight: 600
+			text-transform: uppercase
+			margin-bottom: 5rem
+			display: inline-block
+			&:after
+				max-width: 17rem
+			span
+				position: relative
+				&:before
+					content: ''
+					width: 3rem
+					height: 1.2rem
+					position: absolute
+					top: calc(50% - .6rem)
+					background-repeat: no-repeat
+					background-position: center
+					background-size: 2.5rem
+					background-image: url('../img/arrow-bottom.svg')
+					display: none
+				&.simcal-current-year
+					&:before
+						right: -5.4rem
+				&.simcal-current-month
+					&:before
+						left: -5.4rem		
+		table
+			border-collapse: collapse
+		thead
+			tr:nth-of-type(1)
+				th
+					padding-bottom: 12.2rem!important
+			tr:nth-of-type(2)
+				th
+					text-transform: uppercase
+					font-size: 3.5rem
+					line-height: 4.2rem
+					background-color: #D4F6F2
+					padding: .9rem		
+					&:first-of-type
+						border-left: 1px solid $blue-dark
+					&:last-of-type
+						border-right: 1px solid $blue-dark					
+		tbody
+			tr
+				td
+					background-color: #e7f8fb!important
+			td
+				position: relative
+				box-shadow: unset!important
+				min-height: 6.2rem!important
+				text-align: center
+				border-right: 1px solid $blue-dark!important
+				border: 1px solid $blue-dark!important
+				&:hover
+					background-color: $white!important
+				&:first-of-type
+					border-left: 1px solid $blue-dark
+				.simcal-events-dots
+					display: none!important
+				.simcal-event-title
+					font-size: 2.4rem
+					line-height: 2.8rem
+					font-weight: 300
+					min-width: 10rem
+					display: block
+					padding-top: 0.5rem
+					padding-bottom: 0.5rem
+					border-radius: 4px
+					padding-left: 2rem
+					padding-right: 2rem
+					background-color: #51d67e
+					color: #263564
+					text-transform: capitalize
+					text-align: center
+					box-shadow: unset!important
+				.free > span, .free
+					background-color: #51d67e
+					color: $blue-dark
+				.simcal-event
+					border: none!important
+					cursor: default!important
+					box-shadow: unset!important
+					outline: none!important
+			.simcal-tooltip
+				text-decoration: none!important	
+		.simcal-ajax-loader
+			z-index: 20
+		.simcal-default-calendar-grid .simcal-day>div
+			min-height: 6rem!important
+			display: flex
+			align-items: center
+			justify-content: center
+		.simcal-default-calendar-grid.simcal-default-calendar-light .simcal-day-void, .simcal-default-calendar-grid.simcal-default-calendar-light .simcal-day-void:hover
+			background-color: #f5f5f5!important
+		.simcal-default-calendar-grid .simcal-day-number
+			text-align: right
+			background-color: transparent!important
+			font-size: 2.4rem
+			line-height: 2.8rem
+			font-weight: 500
+			color: $blue-dark!important
+			position: absolute
+			top: 0
+			right: 0
+		.simcal-today
+			> div
+				border: none!important
+			position: relative
+			&:before
+				content: ''
+				position: absolute
+				bottom: 0
+				height: 2px
+				width: 100%
+				background-color: $green
+				left: 0
+				opacity: 0
+		.simcal-default-calendar .simcal-nav-button
+			width: 18rem
+			padding-top: 0.5rem
+			padding-bottom: 0.5rem
+			background-color: #2AD4BF33!important
+			color: $blue-dark!important
+			border-radius: 5px
+			i
+				display: none
+			&:before
+				content: 'Previous'
+				text-transform: uppercase
+				font-size: 2.4rem
+				line-height: 2.9rem
+				font-weight: 300
+			&.simcal-next
+				&:before
+					content: 'Next'
+		.simcal-default-calendar-light .simcal-nav-button:disabled
+			color: $blue-dark!important
+			opacity: .7
+			padding-top: .5rem!important
+			padding-bottom: .5rem!important			
+			&:hover
+				color: $blue-dark!important
+				padding-top: .5rem!important
+				padding-bottom: .5rem!important
+
+body .simcal-default-calendar-grid
+	> table 
+		tbody 
+			td				
+				padding: .6rem 1.8rem!important	
+
+.reservation
+	.product-calendar 
+		.simcal-default-calendar-grid
+			.simcal-day
+				> div
+					max-width: 15rem
+					margin-left: 0
+					margin-right: auto
+			tbody 
+				td
+					justify-content: flex-start
+					align-items: flex-start
+					.simcal-events
+						max-width: 15rem
+						> .simcal-event
+							margin: 5px 0
+							padding: 0
+					.simcal-event-title
+						font-size: 1.6rem
+						line-height: 1.9rem
+						padding: .3rem
+						min-width: 15rem
+
+.qtip
+	display: none!important
+
+.qtip-content
+	display: none!important					
+
+
+.wp-block-woocommerce-empty-cart-block
+	margin-top: 2rem
+
+.wc-block-cart__empty-cart__title ~ .wc-block-product-new,
+.wc-block-cart__empty-cart__title ~ .wp-block-heading,
+.wc-block-cart__empty-cart__title ~ hr
+	display: none
+
+.select2-container .select2-selection--single .select2-selection__rendered
+	padding: 0	
+	
+.woocommerce-cart-form
+	margin-top: 4rem
+	&__cart-item
+		.product-thumbnail 
+			img
+				border-radius: 5px
+			&:before
+				display: none
+			a
+				pointer-events: none
+		.product-remove
+			a
+				text-decoration: none
+
+.cart 
+	.actions
+		display: none!important
+	.product-quantity
+		// display: none!important
+		input
+			pointer-events: none
+			border: none
+			appearance: none
+			color: $blue-dark
+
+
+
+.wpcf7-form-control-wrap
+	textarea
+		height: 18rem
+
+.wpcf7-form
+	label
+		display: block
+		.wpcf7-form-control-wrap
+			margin-top: 1rem
+			display: block
+
+@import media
