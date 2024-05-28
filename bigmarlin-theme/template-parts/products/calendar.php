@@ -1,4 +1,4 @@
-<?php if (get_field('calendar_morning_shortcode')) : ?>
+
     <div class="product-calendar-boats">
         <?php
         $category = get_field('related_category', 'option');
@@ -72,4 +72,3 @@
             </div>
         </div>
     </div>
-<?php endif; ?>

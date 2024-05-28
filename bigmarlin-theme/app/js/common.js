@@ -24,23 +24,10 @@ $(function() {
 
 	$('.wp-block-image, .gallery-item').click(function(){
 		var img_src = $(this).find('img').attr('src')
-		var link = $(this).find('a').attr('href');
-		var link_l = $(this).find('a').length
-		if(link_l > 0){
-			if (link.indexOf('jpg') !== -1 || link.indexOf('png') !== -1) {
-				$('.gallery_popup .gallery_popup-image img').attr('src', img_src);
-				$('body').addClass('popup_opened');
-				$('.gallery_popup').fadeIn();
-				return false;
-			}
-		} else {
-			// if (link.indexOf('jpg') !== -1 || link.indexOf('png') !== -1) {
-				$('.gallery_popup .gallery_popup-image img').attr('src', img_src);
-				$('body').addClass('popup_opened');
-				$('.gallery_popup').fadeIn();
-				return false;
-			// }
-		}
+		$('.gallery_popup .gallery_popup-image img').attr('src', img_src);
+		$('body').addClass('popup_opened');
+		$('.gallery_popup').fadeIn();
+		return false;
 	})
 
 	$('.gallery_popup .close').click(function(){
@@ -160,24 +147,22 @@ $(function() {
 	console.log(JSON.parse(sessionStorage.getItem('user_data')))
 
 	
-	if(sessionStorage.getItem('user_data')){
-		var billing_first_name = JSON.parse(sessionStorage.getItem('user_data')).billing_first_name;
-		var billing_email = JSON.parse(sessionStorage.getItem('user_data')).billing_email;
-		var billing_phone = JSON.parse(sessionStorage.getItem('user_data')).billing_phone;
-		var amount_people = JSON.parse(sessionStorage.getItem('user_data')).amount_people;
-		var booking_date = JSON.parse(sessionStorage.getItem('user_data')).booking_date;
-		var message = JSON.parse(sessionStorage.getItem('user_data')).message;
-		var pick_up_transfer = JSON.parse(sessionStorage.getItem('user_data')).pick_up_transfer;
-		if($('form.checkout-form').length != 0 || $('form.checkout.woocommerce-checkout').length != 0){
-			$('#billing_first_name').val(billing_first_name);
-			$('#billing_email').val(billing_email);
-			$('#billing_phone').val(billing_phone);
-			$('#amount_people').val(amount_people);
-			$('#booking_date').val(booking_date);
-			$('#message').val(message);
-			$('#pick_up_transfer').val(pick_up_transfer);
+		if(sessionStorage.getItem('user_data')){
+			var billing_first_name = JSON.parse(sessionStorage.getItem('user_data')).billing_first_name;
+			var billing_email = JSON.parse(sessionStorage.getItem('user_data')).billing_email;
+			var amount_people = JSON.parse(sessionStorage.getItem('user_data')).amount_people;
+			var booking_date = JSON.parse(sessionStorage.getItem('user_data')).booking_date;
+			var message = JSON.parse(sessionStorage.getItem('user_data')).message;
+			var pick_up_transfer = JSON.parse(sessionStorage.getItem('user_data')).pick_up_transfer;
+			if($('form.checkout-form').length != 0 || $('form.checkout.woocommerce-checkout').length != 0){
+				$('#billing_first_name').val(billing_first_name);
+				$('#billing_email').val(billing_email);
+				$('#amount_people').val(amount_people);
+				$('#booking_date').val(booking_date);
+				$('#message').val(message);
+				$('#pick_up_transfer').val(pick_up_transfer);
+			}
 		}
-	}
 	
 
 	$('#size').change(function(){

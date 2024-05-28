@@ -44,8 +44,25 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 			<div class="col-2">
 				<?php do_action( 'woocommerce_checkout_shipping' ); ?>
+				
 			</div>
+			
+			<?php
+				$amount_people = $checkout->get_value('amount_people');
+				$booking_date = $checkout->get_value('booking_date');
+				$message = $checkout->get_value('message');
+				$pick_up_transfer = $checkout->get_value('pick_up_transfer');			
+			?>
+			
+			<h3 style="margin-top:50px;"><?php esc_html_e('Reservation Information', 'woocommerce'); ?></h3>
+			<ul>
+				<li><strong><?php esc_html_e('Pickup Transfer:', 'woocommerce'); ?></strong> <?php echo esc_html($pick_up_transfer); ?></li>
+				<li><strong><?php esc_html_e('Amount People:', 'woocommerce'); ?></strong> <?php echo esc_html($amount_people); ?></li>
+				<li><strong><?php esc_html_e('Booking Date:', 'woocommerce'); ?></strong> <?php echo esc_html($booking_date); ?></li>
+				<li><strong><?php esc_html_e('Message:', 'woocommerce'); ?></strong> <?php echo esc_html($message); ?></li>
+			</ul>			
 		</div>
+
 
 		<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
 

@@ -162,7 +162,7 @@ function bigmarlin_scripts()
 
 	//if (is_page(1654)) {} else {
 		//wp_enqueue_script('bigmarlin-custom-js', get_template_directory_uri() . '/app/js/scripts.min.js', array('jquery'),  _S_VERSION, ['strategy'  => 'async', 'in_footer' => true,]);
-		wp_enqueue_script('bigmarlin-custom-js', get_template_directory_uri() . '/app/js/thenew-scripts-933.js', array('jquery'),  _S_VERSION, ['strategy'  => 'async', 'in_footer' => true,]);
+		wp_enqueue_script('bigmarlin-custom-js', get_template_directory_uri() . '/app/js/thenew-scripts-932.js', array('jquery'),  _S_VERSION, ['strategy'  => 'async', 'in_footer' => true,]);
 	//}
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
@@ -176,7 +176,7 @@ function bigmarlin_scripts()
 	//wp_enqueue_script('bigmarlin-customіzers', get_template_directory_uri() . '/app/js/custom-boats.js', array('jquery'),  _S_VERSION, ['strategy'  => 'async', 'in_footer' => true,]);
 }
 
-add_action('wp_enqueue_scripts', 'bigmarlin_scripts'); 
+add_action('wp_enqueue_scripts', 'bigmarlin_scripts');
 
 function enqueue_owl_scripts()
 {
@@ -1228,24 +1228,3 @@ function custom_filter_wpcf7_is_tel( $result, $tel ) {
 }
 
 add_filter( 'wpcf7_is_tel', 'custom_filter_wpcf7_is_tel', 10, 2 );
-
-
-
-
-
-// Эти поля добавляют в сообщение админу о заказе 
-add_action('woocommerce_checkout_update_order_meta', 'custom_checkout_field_update_order_meta');
-function custom_checkout_field_update_order_meta($order_id) {
-    if (!empty($_POST['pick_up_transfer'])) {
-        update_post_meta($order_id, '_pick_up_transfer', sanitize_text_field($_POST['pick_up_transfer']));
-    }
-    if (!empty($_POST['amount_people'])) {
-        update_post_meta($order_id, '_amount_people', sanitize_text_field($_POST['amount_people']));
-    }
-    if (!empty($_POST['booking_date'])) {
-        update_post_meta($order_id, '_booking_date', sanitize_text_field($_POST['booking_date']));
-    }
-    if (!empty($_POST['message'])) {
-        update_post_meta($order_id, '_message', sanitize_textarea_field($_POST['message']));
-    }
-}

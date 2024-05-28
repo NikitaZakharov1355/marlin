@@ -243,25 +243,34 @@ jQuery(document).ready(function($) {
 			
 			$(".booking_form").addClass("loading");
 			
-			thisForm.find('#billing_first_name').val('');
-			thisForm.find('#billing_email').val('');
-			thisForm.find('#billing_phone').val('');
-			
-			thisForm.find('#amount_people').val('1');
-			thisForm.find('#booking_date').val('');
-			thisForm.find('#message').val('');
-			$('.checkbox-title').removeClass('checked');
-			$('.the-order-total').text('$0');
-			$('.vari_show').removeClass('active');
-			$(".radio-buttons__wrap input[type='radio']").prop("checked", false);
-			
-			$(document).ready(function() {
-				setTimeout(function() {
+			$.ajax({
+                url: ajaxurl,
+                type: "POST",
+                dataType: "html",
+                data: {
+                    action: "update_cart_total", //очищаем корзину в ноль                   
+                },
+                success: function (e) {
+                    thisForm.find('#billing_first_name').val('');
+					thisForm.find('#billing_email').val('');
+					thisForm.find('#billing_phone').val('');
+					
+					thisForm.find('#amount_people').val('1');
+					thisForm.find('#booking_date').val('');
+					thisForm.find('#message').val('');
+					$('.checkbox-title').removeClass('checked');
+					$('.the-order-total').text('$0');
+					$('.vari_show').removeClass('active');
+					$(".radio-buttons__wrap input[type='radio']").prop("checked", false);
+					
 					alert('Thank you, our manager will contact you as soon as possible');
 					$(".booking_form").removeClass("loading");
-				}, 5000); // Задержка в 5000 миллисекунд (5 секунд)
-			});
-
+					
+                },
+                error: function (e, a, t) {
+                    console.error("Error sending Advanced booking form:", t); 
+                }
+            });
 			
 		});
 	});
@@ -331,6 +340,16 @@ jQuery(document).ready(function($) {
 </script>
 
 <style>
+/*
+#message_field {
+	width: 100%!important;
+}
+.woocommerce-checkout #pick_up_transfer_field, 
+.woocommerce-checkout #amount_people_field, .woocommerce-checkout #booking_date_field, .woocommerce-checkout #message_field {
+	display: block!important;
+}
+*/
+
 .adv-booking__btn:hover {
 	cursor: pointer;
 }

@@ -19,7 +19,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86480079-1"></script>
-	<script src="https://www.w3counter.com/tracker.js?id=129366"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -80,10 +79,14 @@
 		<button class="toggle_menu"></button>
 		<header class="header">
 			<div class="container flex justify_sb header_top">
+				
+			
+				
 				<a class="logo" href="<?php echo home_url(); ?>" title="Big Marlin Charters Punta Cana">
 					<img src="<?php echo get_field('header_logo', 'option')['url']; ?>" alt="<?php echo get_field('header_logo', 'option')['alt']; ?>">
 				</a>
-				<a href="https://bigmarlinpuntacana.com/checkout/" class="btn visible_xs" title="Reservation">Reservation</a>
+				<a href="https://stage3.bigmarlinpuntacana.com/checkout/" class="btn visible_xs" title="Reservation">Reservation</a>
+				<!-- cart indicator -->
 <div class="cart-indicator">
     <?php
     $current_user_cart = WC()->cart->get_cart();
@@ -106,9 +109,10 @@
         </span>
     <?php endif; ?>
     
-    <a href="https://bigmarlinpuntacana.com/checkout/" class="cart-icon-link">Cart</a>
+    <a href="https://stage3.bigmarlinpuntacana.com/checkout/" class="cart-icon-link">Cart</a>
 </div>
-				<div class="hidden_xs">
+<!-- cart indicator end -->
+				<div class="hidden_xs 123">
 					<div class="flex align_c justify_sb header_top-wrapper">
 						<div class="header_title bold align_c">
 							<?php echo get_field('header_title', 'option'); ?>
